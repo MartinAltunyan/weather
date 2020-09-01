@@ -1,0 +1,44 @@
+
+<form (submit)="onAddPost(postForm)" #postForm="ngForm">
+
+  <div class="form-group row">
+    <label for="inputPassword" class="col-sm-2 col-form-label">Enter City</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputPassword" placeholder="City Name" name="cityName" ngModel>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+<hr>
+<button (click)="fiveDaysView()" [disabled]="weather.length < 1" class="btn btn-primary">5 Day Weather</button>
+<div>
+        <div >
+       
+            
+         
+           
+</div>
+
+
+
+<div class="row" multi="true" *ngIf="weather.length > 0">
+  <div class="col-sm-6"*ngFor="let weath of weather" class="bs-example">
+    <div class="card">
+      <div class="card-body"style="background-color: rgb(47, 138, 218);">
+        <h5 class="card-title">{{weath.formatedDate}} as of {{weath.formatedTime}}</h5>
+        <p class="card-text">Feels like {{weath.main.feels_like}}</p>
+       
+      </div>
+    </div>
+  </div>
+  <!-- <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+      </div>
+    </div>
+  </div> -->
+</div>
